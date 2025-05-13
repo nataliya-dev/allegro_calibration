@@ -29,7 +29,7 @@ public:
     std::string getFolderPath() const;
     bool readCalibrationInfo(CalibrationInfo& calib_info);
     std::vector<std::vector<cv::Mat>> readImages(const int camera_num, const double resize_factor, int start_index, int end_index);
-    std::vector<std::vector<cv::Mat>> readRobotPoses(const int camera_num, std::vector<std::vector<cv::Mat>> &original_poses, int start_index, int end_index);
+    std::vector<std::vector<cv::Mat>> readRobotPoses(const int camera_num, int start_index, int end_index);
     int countImagesInFolder(const std::string& folder_path);
 };
 

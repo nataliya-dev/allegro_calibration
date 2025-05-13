@@ -27,7 +27,7 @@ private:
     std::vector<std::vector<int>> cross_observation_matrix_;
 
 public:
-    Metrics(const std::vector<cv::Point3f> object_points, const std::vector<cv::Mat> h2e_optimal, const std::vector<cv::Mat> optimal_b2ee, const std::vector<CameraInfo> camera_info, const CalibrationInfo calibration_info, const std::string output_folder, const std::string calibration_method, const std::vector<std::vector<int>> cross_observation_matrix);
+    Metrics(const std::vector<cv::Point3f> object_points, const std::vector<cv::Mat> h2e_optimal, const std::vector<cv::Mat> optimal_b2ee, const std::vector<CameraInfo> camera_info, const CalibrationInfo calibration_info, const std::string output_folder, const std::vector<std::vector<int>> cross_observation_matrix);
     void projectCorners(const std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> poses, std::vector<std::vector<cv::Mat>> images, std::vector<std::vector<std::vector<cv::Point2f>>> &corner_points_reprojected);
     void reprojectionError(const std::vector<std::vector<std::vector<cv::Point2f>>> corners, const std::vector<std::vector<std::vector<cv::Point2f>>> corner_points_reprojected);
 };

@@ -32,6 +32,7 @@ void Detector::getObjectPoints(std::vector<cv::Point3f> &objectPoints){
 }
 
 
+// If you want to add other patterns, you can do it here by adding another function for the pattern detection
 void Detector::patternDetection(std::vector<std::vector<cv::Mat>> images, std::vector<std::vector<cv::Mat>> poses, std::vector<std::vector<cv::Mat>> &correct_images, std::vector<std::vector<cv::Mat>> &correct_poses, std::vector<std::vector<std::vector<cv::Point2f>>> &correct_corners_only, std::vector<std::vector<std::vector<cv::Point2f>>> &correct_corners, std::vector<std::vector<int>> &cross_observation_matrix, std::vector<std::vector<cv::Mat>> &rvec_all, std::vector<std::vector<cv::Mat>> &tvec_all){
 
     if (calib_info_.getPatternType() == "checkerboard"){
@@ -80,7 +81,6 @@ void Detector::checkerboardDetection(std::vector<std::vector<cv::Mat>> images, s
                     correct_corners[img][cam] = corners;
                     rvec_all[img][cam] = rvec;
                     tvec_all[img][cam] = tvec;
-
                 }
             }
         }

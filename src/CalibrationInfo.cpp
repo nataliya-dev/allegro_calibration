@@ -39,14 +39,6 @@ void CalibrationInfo::setVisualError(const int visual_error){
     this->visual_error_ = visual_error;
 }
 
-void CalibrationInfo::setGt(const int gt){
-    this->gt_ = gt;
-}
-
-void CalibrationInfo::setMetric(const int metric){
-    this->metric_ = metric;
-}
-
 void CalibrationInfo::setCalibSetup(const int setup){
     this->calibration_setup_ = setup;
 }
@@ -83,14 +75,6 @@ const int CalibrationInfo::getVisualError() const {
     return this->visual_error_;
 }
 
-const int CalibrationInfo::getGt() const {
-    return this->gt_;
-}
-
-const int CalibrationInfo::getMetric() const {
-    return this->metric_;
-}
-
 const int CalibrationInfo::getCalibSetup() const {
     return this->calibration_setup_;
 }
@@ -106,9 +90,6 @@ void CalibrationInfo::printCalibInfo() {
             break;
         case 1:
             std::cout << "Eye-on-base" << std::endl;
-            break;
-        case 2:
-            std::cout << "Stereo mobile" << std::endl;
             break;
     }
     std::cout << "Number of cameras: " << this->number_of_cameras_ << std::endl;

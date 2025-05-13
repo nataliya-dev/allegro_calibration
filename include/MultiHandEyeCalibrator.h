@@ -39,7 +39,7 @@ public:
         delete[] h2e_;
         delete[] cam2cam_;
     }
-    void eyeOnBaseCalibration(const std::vector<CameraInfo> camera_info, std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> &optimal_h2e, cv::Mat &optimal_b2ee, std::vector<std::vector<cv::Mat>> &optimal_cam2cam, std::vector<int> selected_poses);
+    void eyeOnBaseCalibration(const std::vector<CameraInfo> camera_info, std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> &optimal_h2e, cv::Mat &optimal_b2ee, std::vector<std::vector<cv::Mat>> &optimal_cam2cam);
     void eyeInHandCalibration(const std::vector<CameraInfo> camera_info, std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> &optimal_h2e, cv::Mat &optimal_b2ee, std::vector<std::vector<cv::Mat>> &optimal_cam2cam, std::vector<std::vector<cv::Mat>> images_collected);
 };
 

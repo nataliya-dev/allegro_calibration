@@ -136,7 +136,7 @@ MultiHandEyeCalibrator::MultiHandEyeCalibrator(const int number_of_waypoints, co
     }
 }
 
-void MultiHandEyeCalibrator::eyeOnBaseCalibration(const std::vector<CameraInfo> camera_info, std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> &optimal_h2e, cv::Mat &optimal_b2ee, std::vector<std::vector<cv::Mat>> &optimal_cam2cam, std::vector<int> selected_poses) {
+void MultiHandEyeCalibrator::eyeOnBaseCalibration(const std::vector<CameraInfo> camera_info, std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> &optimal_h2e, cv::Mat &optimal_b2ee, std::vector<std::vector<cv::Mat>> &optimal_cam2cam) {
     double observed_pt_data[2];
     double observed_pt_data_dir[2];
     Eigen::Map<Eigen::Vector2d> observed_pt(observed_pt_data);
@@ -179,7 +179,7 @@ void MultiHandEyeCalibrator::eyeOnBaseCalibration(const std::vector<CameraInfo> 
         if (detection_amount > 0){
             for (int cam = 0; cam < number_of_cameras_; cam++){
                 // Check if the current camera detected the checkerboard in the current pose
-                if (cross_observation_matrix_[wp][cam] && selected_poses[wp] == 1){
+                if (cross_observation_matrix_[wp][cam]){
                     auto images_points = corners[wp][cam];
                     for (int k = 0; k < pattern_pts_.size(); k++){
                         observed_pt_data[0] = images_points[k].x;
@@ -195,7 +195,7 @@ void MultiHandEyeCalibrator::eyeOnBaseCalibration(const std::vector<CameraInfo> 
                     for (int cam_2 = 0; cam_2 < number_of_cameras_; cam_2++){
 
                         // Check that the cameras which are detecting are different
-                        if (cam_1 != cam_2 && cross_observation_matrix_[wp][cam_1] && cross_observation_matrix_[wp][cam_2] && selected_poses[wp] == 1){
+                        if (cam_1 != cam_2 && cross_observation_matrix_[wp][cam_1] && cross_observation_matrix_[wp][cam_2]){
 
                             auto images_points1 = corners[wp][cam_1];
                             auto images_points2 = corners[wp][cam_2];

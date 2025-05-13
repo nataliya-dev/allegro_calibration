@@ -32,8 +32,6 @@ public:
     void setSize(const double size);
     void setResizeFactor(const double resize_factor);
     void setVisualError(const int visual_error);
-    void setGt(const int gt);
-    void setMetric(const int metric);
     void setCalibSetup(const int setup);
     const int getNumberOfCams() const;
     const std::string getCamFolderPref() const;
@@ -43,8 +41,6 @@ public:
     const double getSize() const;
     const double getResizeFactor() const;
     const int getVisualError() const;
-    const int getGt() const;
-    const int getMetric() const;
     const int getCalibSetup() const;
 
     void printCalibInfo();

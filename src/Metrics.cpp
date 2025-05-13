@@ -6,16 +6,15 @@
 #include "Metrics.h"
 
 
-Metrics::Metrics(const std::vector<cv::Point3f> object_points, const std::vector<cv::Mat> h2e_optimal, const std::vector<cv::Mat> optimal_b2ee, const std::vector<CameraInfo> camera_info, const CalibrationInfo calibration_info, const std::string output_folder, const std::string calibration_method, const std::vector<std::vector<int>> cross_observation_matrix){
+Metrics::Metrics(const std::vector<cv::Point3f> object_points, const std::vector<cv::Mat> h2e_optimal, const std::vector<cv::Mat> optimal_b2ee, const std::vector<CameraInfo> camera_info, const CalibrationInfo calibration_info, const std::string output_folder, const std::vector<std::vector<int>> cross_observation_matrix){
     object_points_ = object_points;
     h2e_optimal_ = h2e_optimal;
     optimal_b2ee_ = optimal_b2ee;
     camera_info_ = camera_info;
     calibration_info_ = calibration_info;
     output_folder_ = output_folder;
-    calibration_method_ = calibration_method;
     cross_observation_matrix_ = cross_observation_matrix;
-    camera_folder_ = output_folder_ +  "/results_" + calibration_method_ + "/" + calibration_info_.getCamFolderPref();
+    camera_folder_ = output_folder_ +  "/results/" + calibration_info_.getCamFolderPref();
 }
 
 void Metrics::projectCorners(const std::vector<std::vector<std::vector<cv::Point2f>>> corners, std::vector<cv::Mat> poses, std::vector<std::vector<cv::Mat>> images, std::vector<std::vector<std::vector<cv::Point2f>>> &corner_points_reprojected) {
@@ -33,7 +32,7 @@ void Metrics::projectCorners(const std::vector<std::vector<std::vector<cv::Point
                 cv::Mat transformation_chain;
 
                 // Transformation matrix depends on the calibration setup (0: eye-in-hand, 1: eye-on-base)
-                if (calibration_info_.getCalibSetup() == 1 || calibration_info_.getCalibSetup() == 2) {
+                if (calibration_info_.getCalibSetup() == 1) {
                     // Distinguish when the optimization provide a single b2ee mat for each camera or a single one for all of them
                     if (optimal_b2ee_.size() == h2e_optimal_.size()) {
                         transformation_chain = h2e_optimal_[j] * poses[i] * optimal_b2ee_[j];
@@ -43,9 +42,9 @@ void Metrics::projectCorners(const std::vector<std::vector<std::vector<cv::Point
                 } else {
                     // Distinguish when the optimization provide a single b2ee mat for each camera or a single one for all of them
                     if (optimal_b2ee_.size() == h2e_optimal_.size()) {
-                        transformation_chain = h2e_optimal_[j] * poses[i].inv() * optimal_b2ee_[j];
+                        transformation_chain = h2e_optimal_[j].inv() * poses[i].inv() * optimal_b2ee_[j];
                     } else {
-                        transformation_chain = h2e_optimal_[j] * poses[i].inv() * optimal_b2ee_[0];
+                        transformation_chain = h2e_optimal_[j].inv() * poses[i].inv() * optimal_b2ee_[0];
                     }
                 }
 
@@ -115,14 +114,14 @@ void Metrics::reprojectionError(const std::vector<std::vector<std::vector<cv::Po
 
         output_file_camera.close();
 
-        int lines_number = linesNumber(output_folder_ + "/results_" + calibration_method_ + "/reprojection_error.txt");
+        int lines_number = linesNumber(output_folder_ + "/results/reprojection_error.txt");
 
         std::ofstream output_file;
         if (lines_number < calibration_info_.getNumberOfCams()) {
-            output_file.open(output_folder_ + "/results_" + calibration_method_ + "/reprojection_error.txt",
+            output_file.open(output_folder_ + "/results/reprojection_error.txt",
                              std::ios::app);  // Use std::ios::app to append data.
         } else {
-            output_file.open(output_folder_ + "/results_" + calibration_method_ + "/reprojection_error.txt");
+            output_file.open(output_folder_ + "/results/reprojection_error.txt");
         }
 
         if (!output_file.is_open()) {
