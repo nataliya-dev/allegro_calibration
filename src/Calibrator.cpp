@@ -36,7 +36,7 @@ void Calibrator::calibration() {
     // Create the Camera Network Info structure
     std::vector <CameraInfo> camera_network_info(number_of_cameras);
     for (int i = 0; i < camera_network_info.size(); i++) {
-        camera_network_info[i].setParameters(data_ + "/" + calib_info.getCamFolderPref() + std::to_string(i + 1),
+        camera_network_info[i].setParameters(data_ + calib_info.getCamFolderPref() + std::to_string(i + 1),
                                              calib_info.getResizeFactor());
     }
 

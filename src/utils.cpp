@@ -154,7 +154,7 @@ bool filterRansac(std::vector<cv::Point3f> object_points, std::vector<cv::Point2
 
     //cv::Mat rvec, tvec;
     std::vector<int> inliers;
-    cv::solvePnPRansac(object_points, corners, camera_info.getCameraMatrix(),camera_info.getDistCoeff(), rvec, tvec, false, 100, 50, 0.99, inliers);
+    cv::solvePnPRansac(object_points, corners, camera_info.getCameraMatrix(),camera_info.getDistCoeff(), rvec, tvec, false, 50, 8, 0.99, inliers);
     //cv::solvePnP(object_points, corners, camera_info.getCameraMatrix(), camera_info.getDistCoeff(), rvec, tvec);
     if (inliers.size() == object_points.size())
         return true;
