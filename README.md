@@ -4,7 +4,7 @@ In industrial scenarios, effective human-robot collaboration relies on multi-cam
 
 📄 [RAL Paper](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10694716)
 
-![Overview](images/MEMROC_block.png)
+![Overview](images/workcell.png)
 
 > ℹ️ **Note**: This repository supports both **multi-camera** and **single-camera** configurations, and works for both **eye-in-hand** and **eye-on-base** calibration setups.
 
@@ -105,7 +105,7 @@ img_height: 720
 
 ## 🚀 Running the Calibration
 
-![Method](images/method.png)
+![Method](images/scheme.png)
 
 Once everything is compiled, run the calibration:
 
