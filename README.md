@@ -68,7 +68,7 @@ size: 0.05                            # Size of squares (in meters)
 
 resize_factor: 1                      # Resize images to speed up detection
 visual_error: 1                       # Store reprojection results (1 = yes)
-calibration_setup: 1                 # 0 = eye-in-hand, 1 = eye-on-base
+calibration_setup: 1                  # 0 = eye-in-hand, 1 = eye-on-base
 ```
 
 
