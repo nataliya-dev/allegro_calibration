@@ -11,10 +11,14 @@
 
 📄 This paper has been accepted to the **IEEE Robotics and Automation Letters (RA-L)** and will be **presented at ICRA 2025**.
 
+<p align="center">
+  <a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10694716">
+    <img src="https://img.shields.io/badge/IEEE_RA--L_Paper-Multi--Camera_Hand--Eye_Calibration-green" alt="RA-L Badge">
+  </a>
+</p>
+
 ## 📝 Abstract
 In industrial scenarios, effective human-robot collaboration relies on multi-camera systems to robustly monitor human operators despite the occlusions that typically show up in a robotic workcell. In this scenario, precise localization of the person in the robot coordinate system is essential, making the hand-eye calibration of the camera network critical. This process presents significant challenges when high calibration accuracy should be achieved in short time to minimize production downtime, and when dealing with extensive camera networks used for monitoring wide areas, such as industrial robotic workcells. Our paper introduces an innovative and robust multi-camera hand-eye calibration method, designed to optimize each camera’s pose relative to both the robot’s base and to each other camera. This optimization integrates two types of key constraints: i) a single board-to-end-effector transformation, and ii) the relative camera-to-camera transformations. We demonstrate the superior performance of our method through comprehensive experiments employing the METRIC dataset and real-world data collected on industrial scenarios, showing notable advancements over state-of-the-art techniques even using less than 10 images. 
-
-📄 [**RAL Paper: Multi-Camera Hand-Eye Calibration for Human-Robot Collaboration in Industrial Robotic Workcells**](https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=10694716)
 
 ![Overview](images/workcell.png)
 
