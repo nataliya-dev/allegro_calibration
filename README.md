@@ -1,8 +1,4 @@
-<div align="center">
-# Multi-Camera Hand-Eye Calibration
-## ICRA 2025
-![CVPR 2025](images/icra_badge.png)
-</div>
+html<br><h1 align="center">Multi-Camera Hand-Eye Calibration</h1><br><h2 align="center">ICRA 2025</h2><br><p align="center"><img src="images/icra_badge.png" alt="ICRA 2025 badge"/></p>
 ## 📝 Abstract
 In industrial scenarios, effective human-robot collaboration relies on multi-camera systems to robustly monitor human operators despite the occlusions that typically show up in a robotic workcell. In this scenario, precise localization of the person in the robot coordinate system is essential, making the hand-eye calibration of the camera network critical. This process presents significant challenges when high calibration accuracy should be achieved in short time to minimize production downtime, and when dealing with extensive camera networks used for monitoring wide areas, such as industrial robotic workcells. Our paper introduces an innovative and robust multi-camera hand-eye calibration method, designed to optimize each camera’s pose relative to both the robot’s base and to each other camera. This optimization integrates two types of key constraints: i) a single board-to-end-effector transformation, and ii) the relative camera-to-camera transformations. We demonstrate the superior performance of our method through comprehensive experiments employing the METRIC dataset and real-world data collected on industrial scenarios, showing notable advancements over state-of-the-art techniques even using less than 10 images. 
 
