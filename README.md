@@ -3,7 +3,7 @@
 
 <p align="center">
   <!-- riduci la larghezza a 120 px (o ciò che preferisci) -->
-  <img src="images/icra_white_badge.png" alt="ICRA 2025 badge" width="120">
+  <img src="images/icra_white_badge.png" alt="ICRA 2025 badge" width="240">
 </p>
 <h2 align="center">ICRA 2025</h2>
 
