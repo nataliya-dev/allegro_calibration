@@ -41,6 +41,7 @@ Make sure the following dependencies are installed:
 * [Ceres Solver](http://ceres-solver.org/)
 * OpenCV ≥ 4.2
 * Eigen ≥ 3.3.7
+* yaml-cpp
 
 Then compile the code:
 
